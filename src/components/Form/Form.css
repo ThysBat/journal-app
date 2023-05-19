@@ -2,3 +2,27 @@
   display: flex;
   flex-direction: column;
 }
+
+.form__heading {
+  font-weight: 500;
+
+  margin: 8px;
+
+  align-self: center;
+}
+
+.form__label {
+  font-size: small;
+  margin: 8px 0;
+}
+
+.form__input {
+  margin-bottom: 16px;
+  padding: 16px;
+
+  border: solid var(--color-water-10) 1px;
+  border-radius: 4px;
+
+  outline: none;
+  resize: none;
+}
