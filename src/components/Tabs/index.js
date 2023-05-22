@@ -5,8 +5,10 @@ import Tab from "../Tab";
 export default function Tabs() {
   return (
     <section className="tabs">
-      <Tab highlighted>All Entries</Tab>
-      <Tab>Favorites</Tab>
+      <Tab counter={3} highlighted>
+        All Entries
+      </Tab>
+      <Tab counter={1}>Favorites</Tab>
     </section>
   );
 }
