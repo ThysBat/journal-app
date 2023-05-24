@@ -10,18 +10,16 @@ export default function EntrySection() {
     <>
       <Tabs />
       <div>
-        {entries.map((entry, index, object) => {
-          return (
-            <Fragment key={entry.id}>
-              <Entry
-                date={entry.date}
-                headline={entry.motto}
-                text={entry.notes}
-              />
-              {index === object.length - 1 ? "" : <Divider />}
-            </Fragment>
-          );
-        })}
+        {entries.map((entry, index, object) => (
+          <Fragment key={entry.id}>
+            <Entry
+              date={entry.date}
+              headline={entry.motto}
+              text={entry.notes}
+            />
+            {index === object.length - 1 ? "" : <Divider />}
+          </Fragment>
+        ))}
       </div>
     </>
   );
