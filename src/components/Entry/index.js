@@ -1,15 +1,26 @@
 import "./Entry.css";
 import Bookmark from "../Bookmark";
 
-export default function Entry({ date, headline, text }) {
+export default function Entry({
+  id,
+  date,
+  motto,
+  notes,
+  isFavorite,
+  onToggleFavorite,
+}) {
   return (
     <article className="entry">
       <span className="entry__date">{date}</span>
       <header className="entry__header">
-        <h3 className="entry__headline">{headline}</h3>
-        <Bookmark></Bookmark>
+        <h3 className="entry__headline">{motto}</h3>
+        <Bookmark
+          id={id}
+          isFavorite={isFavorite}
+          onToggleFavorite={onToggleFavorite}
+        ></Bookmark>
       </header>
-      <p className="entry__text">{text}</p>
+      <p className="entry__text">{notes}</p>
     </article>
   );
 }

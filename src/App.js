@@ -11,15 +11,28 @@ export default function App() {
   const [entries, setEntries] = useLocalStorageState("entries", {
     defaultValue: initialEntries,
   });
+  const [isFavorite, setIsFavorite] = useLocalStorageState("isFavorite", {
+    defaultValue: false,
+  });
+
   function handleAddEntry(newEntry) {
     setEntries([
       ...entries,
       {
         id: uid(),
         date: new Date().toLocaleDateString("en-us", { dateStyle: "medium" }),
+        isFavorite: false,
         ...newEntry,
       },
     ]);
+  }
+
+  function handleToggleFavorite(id) {
+    setEntries(
+      entries.map((entry) =>
+        entry.id === id ? { ...entry, isFavorite: !entry.isFavorite } : entry
+      )
+    );
   }
 
   return (
@@ -27,7 +40,10 @@ export default function App() {
       <Header />
       <main className="main">
         <Form onAddEntry={handleAddEntry} />
-        <EntrySection entries={entries} />
+        <EntrySection
+          entries={entries}
+          onToggleFavorite={handleToggleFavorite}
+        />
       </main>
       <Footer />
     </>
@@ -41,6 +57,7 @@ const initialEntries = [
     motto: "We are in a state of chaos",
     notes:
       "Today I learned about React State. It was fun! I can't wait to learn more.",
+    isFavorite: false,
   },
   {
     id: 999,
@@ -48,6 +65,7 @@ const initialEntries = [
     motto: "Props, Props, Props",
     notes:
       "Today I learned about React Props. Mad props to everyone who understands this!",
+    isFavorite: false,
   },
   {
     id: 998,
@@ -55,11 +73,13 @@ const initialEntries = [
     motto: "How to nest components online fast",
     notes:
       "Today I learned about React Components and how to nest them like a pro. Application design is so much fun!",
+    isFavorite: false,
   },
   {
     id: 997,
     date: "Feb 2, 2025",
     motto: "I'm a React Developer",
     notes: "My React-ion when I learned about React: 😍",
+    isFavorite: false,
   },
 ];

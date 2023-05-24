@@ -1,5 +1,4 @@
 import "./Tabs.css";
-
 import Tab from "../Tab";
 
 export default function Tabs() {
