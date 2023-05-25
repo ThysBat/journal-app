@@ -11,14 +11,14 @@ export default function EntrySection({ entries, onToggleFavorite }) {
       <Tabs />
       <div>
         {entries.map((entry, index) => (
-          <Fragment key={entry.id}>
+          <Fragment key={index}>
             {index > 0 ? <Divider /> : null}
             <Entry
-              entry={entry}
               id={entry.id}
               date={entry.date}
               motto={entry.motto}
               notes={entry.notes}
+              isFavorite={entry.isFavorite}
               onToggleFavorite={onToggleFavorite}
             />
           </Fragment>

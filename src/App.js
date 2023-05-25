@@ -11,9 +11,6 @@ export default function App() {
   const [entries, setEntries] = useLocalStorageState("entries", {
     defaultValue: initialEntries,
   });
-  const [isFavorite, setIsFavorite] = useLocalStorageState("isFavorite", {
-    defaultValue: false,
-  });
 
   function handleAddEntry(newEntry) {
     setEntries([
